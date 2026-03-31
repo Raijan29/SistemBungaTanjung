@@ -20,7 +20,7 @@ export default function Navbar({ session }) {
           className="w-9 h-9 rounded-full text-white flex items-center justify-center font-bold text-sm"
           style={{ backgroundColor: "#0b91d2" }}
         >
-          A
+          {session?.user?.email?.[0]?.toUpperCase() || "U"}
         </div>
         <button
           onClick={handleLogout}

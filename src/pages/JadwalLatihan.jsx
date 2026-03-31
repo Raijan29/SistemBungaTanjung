@@ -71,8 +71,31 @@ export default function JadwalLatihan() {
   };
 
   const handleDelete = async (id) => {
-    if (!confirm("Hapus jadwal ini?")) return;
-    await supabase.from("jadwal_latihan").delete().eq("id", id);
+    if (!confirm("Hapus jadwal ini? Data absensi terkait juga akan terhapus."))
+      return;
+
+    // Hapus dulu absensi yang terkait dengan jadwal ini
+    const { error: errorAbsensi } = await supabase
+      .from("absensi")
+      .delete()
+      .eq("jadwal_id", id);
+
+    if (errorAbsensi) {
+      alert("Gagal menghapus absensi terkait: " + errorAbsensi.message);
+      return;
+    }
+
+    // Baru hapus jadwalnya
+    const { error: errorJadwal } = await supabase
+      .from("jadwal_latihan")
+      .delete()
+      .eq("id", id);
+
+    if (errorJadwal) {
+      alert("Gagal menghapus jadwal: " + errorJadwal.message);
+      return;
+    }
+
     fetchAll();
   };
 
