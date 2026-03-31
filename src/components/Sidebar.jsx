@@ -64,7 +64,9 @@ export default function Sidebar() {
         className="p-4 border-t  text-xs text-blue-700 text-center"
         style={{ backgroundColor: "#0b91d2" }}
       >
-        v1.0.0 © 2025 Bunga Tanjung
+        v1.0.0 © 2026 Bunga Tanjung <br />
+        founder : Raizan, Reonaldi, Tiara,
+        <br /> Syifa, Ariani
       </div>
     </div>
   );
