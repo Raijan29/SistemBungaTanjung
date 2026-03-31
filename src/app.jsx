@@ -10,6 +10,7 @@ import JadwalLatihan from "./pages/JadwalLatihan";
 import Kegiatan from "./pages/Kegiatan";
 import Absensi from "./pages/Absensi";
 import Login from "./pages/Login";
+import Register from "./pages/register";
 
 function PrivateRoute({ children, session }) {
   return session ? children : <Navigate to="/login" />;
@@ -41,6 +42,10 @@ export default function App() {
       <Route
         path="/login"
         element={session ? <Navigate to="/dashboard" /> : <Login />}
+      />
+      <Route
+        path="/register"
+        element={session ? <Navigate to="/dashboard" /> : <Register />}
       />
       <Route
         path="/*"

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { supabase } from "../lib/supabase";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -28,11 +29,13 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-rose-50 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-blue-50 flex items-center justify-center px-4">
       <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-sm">
         <div className="text-center mb-8">
-          <div className="text-4xl mb-2">🌺</div>
-          <h1 className="text-2xl font-bold text-gray-800">Bunga Tanjung</h1>
+          <img src="/logo.png" alt="Logo" className="mx-auto h-18 w-16" />
+          <h1 className="text-2xl font-bold " style={{ color: "#0b91d2" }}>
+            Bunga Tanjung
+          </h1>
           <p className="text-sm text-gray-500 mt-1">
             Sistem Informasi Manajemen Seni Tari
           </p>
@@ -80,9 +83,18 @@ export default function Login() {
             {loading ? "Masuk..." : "Masuk"}
           </button>
         </form>
+        <p className="text-center text-sm text-gray-500 mt-4">
+          Belum punya akun?{" "}
+          <Link
+            to="/register"
+            className="text-blue-600 hover:underline font-medium"
+          >
+            Daftar di sini
+          </Link>
+        </p>
 
         <p className="text-center text-xs text-gray-400 mt-6">
-          © 2025 Lembaga Bunga Tanjung
+          © 2026 Lembaga Bunga Tanjung
         </p>
       </div>
     </div>

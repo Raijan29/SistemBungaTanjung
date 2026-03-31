@@ -81,6 +81,26 @@ export default function JadwalLatihan() {
     selesai: "bg-green-100 text-green-700",
     dibatalkan: "bg-red-100 text-red-600",
   };
+  // Tambahkan array jam di atas return, setelah useState
+  const jamOptions = [
+    "07:00",
+    "08:00",
+    "09:00",
+    "10:00",
+    "11:00",
+    "12:00",
+    "13:00",
+    "14:00",
+    "15:00",
+    "16:00",
+    "17:00",
+    "18:00",
+    "19:00",
+    "20:00",
+    "21:00",
+    "22:00",
+    "23:00",
+  ];
 
   return (
     <div>
@@ -255,29 +275,77 @@ export default function JadwalLatihan() {
                   <label className="text-sm font-medium text-gray-700">
                     Jam Mulai
                   </label>
-                  <input
-                    type="time"
+                  <select
                     value={form.jam_mulai}
                     onChange={(e) =>
                       setForm({ ...form, jam_mulai: e.target.value })
                     }
                     required
                     className="w-full border rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-rose-400"
-                  />
+                  >
+                    <option value="">Pilih jam...</option>
+                    {[
+                      "07:00",
+                      "08:00",
+                      "09:00",
+                      "10:00",
+                      "11:00",
+                      "12:00",
+                      "13:00",
+                      "14:00",
+                      "15:00",
+                      "16:00",
+                      "17:00",
+                      "18:00",
+                      "19:00",
+                      "20:00",
+                      "21:00",
+                      "22:00",
+                      "23:00",
+                    ].map((jam) => (
+                      <option key={jam} value={jam}>
+                        {jam}
+                      </option>
+                    ))}
+                  </select>
                 </div>
                 <div>
                   <label className="text-sm font-medium text-gray-700">
                     Jam Selesai
                   </label>
-                  <input
-                    type="time"
+                  <select
                     value={form.jam_selesai}
                     onChange={(e) =>
                       setForm({ ...form, jam_selesai: e.target.value })
                     }
                     required
                     className="w-full border rounded-lg px-3 py-2 text-sm mt-1 focus:outline-none focus:ring-2 focus:ring-rose-400"
-                  />
+                  >
+                    <option value="">Pilih jam...</option>
+                    {[
+                      "07:00",
+                      "08:00",
+                      "09:00",
+                      "10:00",
+                      "11:00",
+                      "12:00",
+                      "13:00",
+                      "14:00",
+                      "15:00",
+                      "16:00",
+                      "17:00",
+                      "18:00",
+                      "19:00",
+                      "20:00",
+                      "21:00",
+                      "22:00",
+                      "23:00",
+                    ].map((jam) => (
+                      <option key={jam} value={jam}>
+                        {jam}
+                      </option>
+                    ))}
+                  </select>
                 </div>
               </div>
               <div>

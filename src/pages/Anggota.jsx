@@ -11,10 +11,14 @@ export default function Anggota() {
   const [loading, setLoading] = useState(false);
 
   const fetchData = async () => {
-    const { data: rows } = await supabase
+    const { data: rows, error } = await supabase
       .from("anggota")
       .select("*")
       .order("created_at", { ascending: false });
+
+    console.log("DATA:", rows);
+    console.log("ERROR:", error);
+
     setData(rows || []);
   };
 

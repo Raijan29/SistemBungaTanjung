@@ -60,7 +60,6 @@ export default function Pelatih() {
 
   return (
     <div>
-      onClick={() => setShowModal(true)}
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold text-gray-800">Data Pelatih</h1>
         <button
